@@ -544,7 +544,7 @@ class stratalSection:
         """
 
         for i in range(0, self.ncpus):
-            df = h5py.File('%s/sed.time%s.p%s.hdf5'%(self.folder, timestep,i), 'r')
+            df = h5py.File('%s/sed.time%s.hdf5'%(self.folder, timestep), 'r')
             print(list(df.keys()))
             coords = np.array((df['/coords']))
             layDepth = np.array((df['/layDepth']))
@@ -560,7 +560,7 @@ class stratalSection:
         self.dy = y[1]-y[0]
         self.x = x
         self.y = y
-        self.nx = int((x.max() - x.min())/self.dx+1)
+        self.nx = int((x.max() - x.min())/self.dx+1)+1
         self.ny = int((y.max() - y.min())/self.dx+1)
         self.nz = dep.shape[1]
         self.xi = np.linspace(x.min(), x.max(), self.nx)
@@ -574,7 +574,7 @@ class stratalSection:
     
     def loadTIN(self, timestep=0):
         """
-        Read the TIN HDF5 file for a given time step.
+        Read the TIN f file for a given time step.
         Parameters
         ----------
         variable : timestep
@@ -582,7 +582,7 @@ class stratalSection:
         """
 
         for i in range(0, self.ncpus):
-            df = h5py.File('%s/tin.time%s.p%s.hdf5'%(self.folder, timestep, i), 'r')
+            df = h5py.File('%s/tin.time%s.hdf5'%(self.folder, timestep), 'r')
             coords = np.array((df['/coords']))
             cumdiff = np.array((df['/cumdiff']))
             if i == 0:
