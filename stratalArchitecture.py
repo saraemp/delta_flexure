@@ -189,7 +189,7 @@ def viewSection(width = 800, height = 400, cs = None, dnlay = None,
         y=cs.secDep[0],
         mode='lines',
         line=dict(
-            shape='line',
+            shape='linear',
             width = linesize+2,
             color = 'rgb(0, 0, 0)'
         )
