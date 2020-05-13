@@ -544,7 +544,7 @@ class stratalSection:
         """
 
         for i in range(0, self.ncpus):
-            df = h5py.File('%s/sed.time%s.p%s.hdf5'%(self.folder, timestep,i), 'r')
+            df = h5py.File('%s/sed.time%s.hdf5'%(self.folder, timestep), 'r')
             print(list(df.keys()))
             coords = np.array((df['/coords']))
             layDepth = np.array((df['/layDepth']))
@@ -582,7 +582,7 @@ class stratalSection:
         """
 
         for i in range(0, self.ncpus):
-            df = h5py.File('%s/tin.time%s.p%s.hdf5'%(self.folder, timestep,i), 'r')
+            df = h5py.File('%s/tin.time%s.hdf5'%(self.folder, timestep), 'r')
             coords = np.array((df['/coords']))
             cumdiff = np.array((df['/cumdiff']))
             if i == 0:
